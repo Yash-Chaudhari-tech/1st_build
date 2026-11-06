@@ -1,0 +1,1 @@
+Book Id = 101, ! Book name = Ramayan, is Issued to User id == 1, ! Uesr name Yash, ! in Quntity == 10
