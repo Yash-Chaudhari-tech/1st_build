@@ -1,5 +1,4 @@
 import colorama
-
 from colorama import Fore, init
 
 def menu():
@@ -27,6 +26,7 @@ def read_book():
         book_data = []
         return book_data
 
+
 def read_user():
     try:
         with open("user_info.txt", "r") as u:
@@ -36,16 +36,17 @@ def read_user():
         user_data = []
         return user_data
 
-    
+
+
 def read_issued():
         try:
-
             with open("issued_info.txt", "r") as t:
                 user_data = t.readlines()
                 return user_data
         except FileNotFoundError:
             user_data = []
             return user_data
+
 
 def add_book():
     book_data = read_book()
@@ -54,7 +55,6 @@ def add_book():
     book_id = len(read_book()) + 101
     print(Fore.BLUE + f'The Book Id is :: {book_id}')
     
-
     book_name = input(Fore.BLUE + "Enter The Book Name :: ")
     for i in read_book():
         if book_name.lower() in i.lower():
@@ -85,7 +85,6 @@ def viwe_book():
 
     book_data = read_book()
     
-
     if len(read_book()) == 0:
             print(Fore.RED + 'There is no data about Book')
             
@@ -94,6 +93,7 @@ def viwe_book():
         for i in read_book():
             i = i.split()
             print(Fore.GREEN + f'Book Id : {i[0]} || Book Name : {i[1]} || Author Name : {i[2]} || Quentity : {i[-1]}')
+
 
 search = ()
 def search_book(search):
@@ -115,8 +115,6 @@ def search_book(search):
             else:
                     print(Fore.RED + "Sorry, The book id is not found")
                 
-        
-
         else:
             
             for i in book_data:
@@ -136,18 +134,12 @@ def resister_user():
     user_id = len(read_user()) + 1
     print(Fore.BLUE + f'The Resister Id is :: {user_id}')
    
-
     user_name = input(Fore.BLUE + "Enter The User Name :: ")
     for i in read_user():
         if user_name.lower() in i.lower():
             print(Fore.RED + "The user is Alredy exist")
             return()
-
-    
-   
-
-    
-
+        
     while True:
         mobail = input(Fore.BLUE + "Enter the Mobaile Number :: ")
         if mobail.isdigit():
@@ -169,10 +161,8 @@ def issued_book():
     print(Fore.MAGENTA + F'{"Issued Book":^48}')
     book = input(Fore.BLUE + "Enter either Book name or Book id :: ")
     
-    
     book_data =  read_book()
-    user_data = read_user()
-   
+    user_data = read_user()  
         
     if len(book_data) == 0:
         print(Fore.RED + "Sorry, No book are avilable for issued")
@@ -197,8 +187,7 @@ def issued_book():
                                 if j[0] == user + ",":
                                     print(Fore.GREEN + "Isssued detail are added successfully")                                
                                     with open ("issued_info.txt", "a") as k:
-                                        k.write(f"Book Id = {i[0]} ! Book name = {i[1]} is Issued to User id == {j[0]} ! Uesr name = {j[1]} ! in Quntity == {q}\n")
-                                
+                                        k.write(f"Book Id = {i[0]} ! Book name = {i[1]} is Issued to User id == {j[0]} ! Uesr name {j[1]} ! in Quntity == {q}\n")
                                     break
                             else:
                                 print(Fore.RED + "Sorry, There is no user id is found")
@@ -207,14 +196,9 @@ def issued_book():
                     break
             else:
                 print(Fore.RED + "Sorry, There is no book id is found!")
-                    
-
-                    
-
-
+       
         else: 
-            
-                        
+             
             for i in book_data:
                 i = i.strip().split()
                 
@@ -232,7 +216,7 @@ def issued_book():
                                 if j[0] == user + ",":
                                     print(Fore.GREEN + "Isssued detail are added successfully")                                
                                     with open ("issued_info.txt", "a") as k:
-                                        k.write(f"Book Id = {i[0]} ! Book name = {i[1]} is Issued to User id == {j[0]} ! Uesr name = {j[1]} ! in Quntity == {q}\n")                               
+                                        k.write(f"Book Id = {i[0]} ! Book name = {i[1]} is Issued to User id == {j[0]} ! Uesr name {j[1]} ! in Quntity == {q}\n")                               
                                     break
                             else:
                                 print(Fore.RED + "Sorry, There is no user id is found")
@@ -241,16 +225,6 @@ def issued_book():
                     break
             else:
                 print(Fore.RED + "Sorry, There is no book id is found!")
-
-
-
-
-
-
-                        
-                
-
-
 
 
 while True:
